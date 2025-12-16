@@ -1,5 +1,4 @@
-import { Footer } from "../../components/Footer";
-import { Nav } from "../../components/Nav";
+import Link from "next/link";
 
 export const metadata = {
   title: "Terms of Service"
@@ -7,11 +6,16 @@ export const metadata = {
 
 export default function TermsPage() {
   return (
-    <main className="container">
-      <Nav />
-      <article className="legal">
+    <main>
+      <article className="sheet">
+        <div className="sheetHeaderRow">
+          <Link className="backLink" href="/">
+            ← Home
+          </Link>
+        </div>
+
         <h1>Terms of Service</h1>
-        <p className="legalMeta">Last updated: December 5, 2025</p>
+        <p className="sheetMeta">Last updated: December 5, 2025</p>
 
         <p>
           Welcome to DOODL. By using our app, you agree to these terms. If you do not agree, please do not use DOODL.
@@ -70,8 +74,6 @@ export default function TermsPage() {
           Questions or concerns? Email <a href="mailto:anthonyvvza@gmail.com">anthonyvvza@gmail.com</a>.
         </p>
       </article>
-      <Footer />
     </main>
   );
 }
-

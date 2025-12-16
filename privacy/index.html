@@ -6,63 +6,129 @@
     <title>DOODL. Privacy Policy</title>
     <style>
       :root {
-        color-scheme: light dark;
-        --bg: #0b0b0f;
-        --card: #12121a;
-        --text: #e9e9f2;
-        --muted: #b8b8c8;
-        --link: #7aa7ff;
-        --border: rgba(255, 255, 255, 0.12);
-      }
-      @media (prefers-color-scheme: light) {
-        :root {
-          --bg: #ffffff;
-          --card: #fafafa;
-          --text: #121216;
-          --muted: #5a5a6a;
-          --link: #1f5eff;
-          --border: rgba(0, 0, 0, 0.12);
-        }
+        color-scheme: dark;
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.72);
+        --bg: #05040a;
+        --border: rgba(255, 255, 255, 0.16);
+        --shadow: 0 48px 110px rgba(0, 0, 0, 0.58);
+        --accent-1: #87c84f;
+        --accent-2: #15b6a8;
+        --accent-3: #1667ff;
       }
       body {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
-        background: var(--bg);
+        height: 100%;
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
         color: var(--text);
-        line-height: 1.55;
+        background: radial-gradient(circle at 18% 18%, rgba(135, 200, 79, 0.22), transparent 30%),
+          radial-gradient(circle at 80% 28%, rgba(21, 182, 168, 0.18), transparent 34%),
+          radial-gradient(circle at 55% 85%, rgba(22, 103, 255, 0.18), transparent 35%), var(--bg);
+        overflow: hidden;
       }
-      main {
-        max-width: 860px;
-        margin: 0 auto;
-        padding: 28px 16px 56px;
+
+      .stage {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: clamp(14px, 3vw, 28px);
       }
-      header {
-        margin-bottom: 18px;
-        padding: 18px 18px 14px;
-        border: 1px solid var(--border);
+
+      .frame {
+        position: relative;
+        aspect-ratio: 9 / 16;
+        height: min(94vh, calc(92vw * 16 / 9));
+        width: min(92vw, calc(94vh * 9 / 16));
+        border-radius: 26px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: var(--shadow), 0 0 0 1px rgba(255, 255, 255, 0.06), 0 0 42px rgba(21, 182, 168, 0.16);
+        background: #07060a;
+      }
+
+      .frame::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 25% 18%, rgba(135, 200, 79, 0.24), transparent 42%),
+          radial-gradient(circle at 78% 30%, rgba(21, 182, 168, 0.22), transparent 46%),
+          radial-gradient(circle at 55% 86%, rgba(22, 103, 255, 0.18), transparent 46%),
+          linear-gradient(180deg, rgba(8, 6, 10, 0.34), rgba(8, 6, 10, 0.82));
+      }
+
+      .frame::after {
+        content: "";
+        position: absolute;
+        inset: 10px;
+        border-radius: 18px;
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
+        pointer-events: none;
+      }
+
+      .frameInner {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .frameScroll {
+        flex: 1;
+        overflow: auto;
+        padding: 18px 16px;
+      }
+
+      .frameScroll::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        justify-content: center;
+        width: 100%;
+        margin-top: 4px;
+      }
+
+      .brand img {
+        width: 56px;
+        height: 56px;
         border-radius: 14px;
-        background: var(--card);
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
       }
+
+      .brand span {
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        font-size: 20px;
+      }
+
+      .sheet {
+        margin: 14px auto 0;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(0, 0, 0, 0.18);
+        padding: 18px;
+        max-width: 520px;
+      }
+
       h1 {
-        margin: 0 0 6px;
-        font-size: 28px;
+        margin: 0;
+        font-size: 20px;
         letter-spacing: -0.02em;
       }
       .meta {
-        margin: 0;
-        color: var(--muted);
-        font-size: 14px;
-      }
-      section {
-        margin-top: 14px;
-        padding: 18px;
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        background: var(--card);
+        margin: 8px 0 0;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 13px;
       }
       h2 {
-        margin: 0 0 10px;
-        font-size: 18px;
+        margin: 16px 0 8px;
+        font-size: 14px;
         letter-spacing: -0.01em;
       }
       p {
@@ -76,139 +142,170 @@
         margin: 6px 0;
       }
       a {
-        color: var(--link);
+        color: inherit;
+        text-decoration: underline;
       }
       code {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         font-size: 0.95em;
       }
+
+      .footerBar {
+        padding: 12px 16px 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        background: linear-gradient(180deg, rgba(8, 6, 10, 0.18), rgba(8, 6, 10, 0.5));
+        text-align: center;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 12px;
+      }
+
+      .footerLinks {
+        display: inline-flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .footerLinks a {
+        border-bottom: 1px solid transparent;
+        padding-bottom: 2px;
+      }
+
+      .footerLinks a:hover {
+        color: rgba(255, 255, 255, 0.92);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      @media (max-width: 540px) {
+        .stage {
+          padding: 0;
+        }
+
+        .frame {
+          width: 100%;
+          height: 100vh;
+          border-radius: 0;
+          border: none;
+        }
+
+        .frame::after {
+          inset: 0;
+          border-radius: 0;
+        }
+      }
     </style>
   </head>
   <body>
-    <main>
-      <header>
-        <h1>DOODL. Privacy Policy</h1>
-        <p class="meta">Last updated: December 16, 2025</p>
-        <p class="meta">
-          DOODL. is built for sharing doodles with friends and family in small groups. This policy explains what we
-          collect, why we collect it, and the choices you have. If you do not agree with this policy, please do not use
-          DOODL.
-        </p>
-      </header>
+    <div class="stage">
+      <div class="frame">
+        <div class="frameInner">
+          <div class="frameScroll">
+            <div class="brand">
+              <img src="/logo.png" alt="DOODL." width="56" height="56" />
+              <span>DOODL.</span>
+            </div>
 
-      <section>
-        <h2>1. What we collect</h2>
-        <p>We collect only what we need to run DOODL:</p>
-        <ul>
-          <li>
-            <strong>Account details:</strong> username, a pairing/recovery code, profile ID, and optional avatar URL.
-          </li>
-          <li><strong>Group info:</strong> the groups you create or join and group membership.</li>
-          <li><strong>Doodles:</strong> doodles you create and send (including image/base64 content).</li>
-          <li>
-            <strong>Activity data:</strong> timestamps for doodles and basic “last active” signals (to show online/offline
-            status).
-          </li>
-          <li><strong>Push tokens:</strong> APNs device tokens and environment (sandbox/production) to deliver notifications.</li>
-          <li><strong>Basic app info:</strong> device/app version and limited logs for reliability and support.</li>
-        </ul>
-      </section>
+            <article class="sheet">
+              <h1>Privacy Policy</h1>
+              <p class="meta">Last updated: December 16, 2025</p>
+              <p class="meta">
+                DOODL. is built for sharing doodles with friends and family in small groups. This policy explains what we collect,
+                why we collect it, and the choices you have. If you do not agree with this policy, please do not use DOODL.
+              </p>
 
-      <section>
-        <h2>2. How we use data</h2>
-        <ul>
-          <li><strong>Operate the app:</strong> create accounts, join groups, sync doodles, and show inbox/unread counts.</li>
-          <li><strong>Notifications:</strong> send push notifications when new doodles arrive.</li>
-          <li><strong>Reliability &amp; security:</strong> prevent abuse and troubleshoot issues.</li>
-          <li><strong>Product improvement:</strong> improve performance and fix bugs (using limited, privacy-focused signals).</li>
-        </ul>
-      </section>
+              <h2>1. What we collect</h2>
+              <p>We collect only what we need to run DOODL:</p>
+              <ul>
+                <li><strong>Account details:</strong> username, a pairing/recovery code, profile ID, and optional avatar URL.</li>
+                <li><strong>Group info:</strong> the groups you create or join and group membership.</li>
+                <li><strong>Doodles:</strong> doodles you create and send (including image/base64 content).</li>
+                <li>
+                  <strong>Activity data:</strong> timestamps for doodles and basic “last active” signals (to show online/offline
+                  status).
+                </li>
+                <li><strong>Push tokens:</strong> APNs device tokens and environment (sandbox/production) to deliver notifications.</li>
+                <li><strong>Basic app info:</strong> device/app version and limited logs for reliability and support.</li>
+              </ul>
 
-      <section>
-        <h2>3. How we store data</h2>
-        <p>
-          DOODL. uses managed cloud services (including Supabase) to store and sync your data. Data is encrypted in transit.
-          Access is restricted to the minimum needed to operate the service.
-        </p>
-        <p>
-          If you upload an avatar, it may be stored in managed object storage. Doodles and metadata are stored in the database.
-        </p>
-      </section>
+              <h2>2. How we use data</h2>
+              <ul>
+                <li><strong>Operate the app:</strong> create accounts, join groups, sync doodles, and show inbox/unread counts.</li>
+                <li><strong>Notifications:</strong> send push notifications when new doodles arrive.</li>
+                <li><strong>Reliability &amp; security:</strong> prevent abuse and troubleshoot issues.</li>
+                <li><strong>Product improvement:</strong> improve performance and fix bugs (using limited, privacy-focused signals).</li>
+              </ul>
 
-      <section>
-        <h2>4. Sharing</h2>
-        <p>
-          DOODL. does not sell your personal data. We share limited information only with service providers that help run the app,
-          such as:
-        </p>
-        <ul>
-          <li><strong>Supabase</strong> (database and storage)</li>
-          <li><strong>Apple Push Notification service (APNs)</strong> (notification delivery)</li>
-        </ul>
-        <p>We may also share information if required by law or to protect users and the service.</p>
-      </section>
+              <h2>3. How we store data</h2>
+              <p>
+                DOODL. uses managed cloud services (including Supabase) to store and sync your data. Data is encrypted in transit.
+                Access is restricted to the minimum needed to operate the service.
+              </p>
+              <p>If you upload an avatar, it may be stored in managed object storage. Doodles and metadata are stored in the database.</p>
 
-      <section>
-        <h2>5. Your choices &amp; control</h2>
-        <ul>
-          <li><strong>Edit your profile:</strong> you can change your username and avatar in the app (if available).</li>
-          <li><strong>Notifications:</strong> you can enable/disable notifications in iOS settings.</li>
-          <li>
-            <strong>Delete your account:</strong> you can request deletion from within the app (if available) or by contacting us.
-          </li>
-        </ul>
-      </section>
+              <h2>4. Sharing</h2>
+              <p>
+                DOODL. does not sell your personal data. We share limited information only with service providers that help run the
+                app, such as:
+              </p>
+              <ul>
+                <li><strong>Supabase</strong> (database and storage)</li>
+                <li><strong>Apple Push Notification service (APNs)</strong> (notification delivery)</li>
+              </ul>
+              <p>We may also share information if required by law or to protect users and the service.</p>
 
-      <section>
-        <h2>6. Retention</h2>
-        <p>
-          We keep your data for as long as needed to provide the service. If you delete your account, we remove your profile and
-          associated data from our active systems, subject to technical limitations and legal requirements.
-        </p>
-        <p>
-          We may retain minimal records (for example, logs or security records) if required to comply with law or prevent abuse.
-        </p>
-      </section>
+              <h2>5. Your choices &amp; control</h2>
+              <ul>
+                <li><strong>Edit your profile:</strong> you can change your username and avatar in the app (if available).</li>
+                <li><strong>Notifications:</strong> you can enable/disable notifications in iOS settings.</li>
+                <li><strong>Delete your account:</strong> you can request deletion from within the app (if available) or by contacting us.</li>
+              </ul>
 
-      <section>
-        <h2>7. Security</h2>
-        <p>
-          We use reasonable safeguards such as encryption in transit, access controls, and monitoring to protect your data. No
-          system is perfect, so please keep your device secure and keep DOODL. updated.
-        </p>
-      </section>
+              <h2>6. Retention</h2>
+              <p>
+                We keep your data for as long as needed to provide the service. If you delete your account, we remove your profile
+                and associated data from our active systems, subject to technical limitations and legal requirements.
+              </p>
+              <p>We may retain minimal records (for example, logs or security records) if required to comply with law or prevent abuse.</p>
 
-      <section>
-        <h2>8. Children</h2>
-        <p>
-          DOODL. is not directed to children under 13, and we do not knowingly collect personal information from children under 13.
-          If you believe a child has provided data, contact us and we will remove it.
-        </p>
-      </section>
+              <h2>7. Security</h2>
+              <p>
+                We use reasonable safeguards such as encryption in transit, access controls, and monitoring to protect your data.
+                No system is perfect, so please keep your device secure and keep DOODL. updated.
+              </p>
 
-      <section>
-        <h2>9. International use</h2>
-        <p>
-          Your data may be processed and stored in countries other than where you live. We apply the protections described in this
-          policy regardless of location.
-        </p>
-      </section>
+              <h2>8. Children</h2>
+              <p>
+                DOODL. is not directed to children under 13, and we do not knowingly collect personal information from children under
+                13. If you believe a child has provided data, contact us and we will remove it.
+              </p>
 
-      <section>
-        <h2>10. Changes to this policy</h2>
-        <p>
-          We may update this policy from time to time. If changes are significant, we will provide notice in the app. Continued use
-          of DOODL. after changes means you accept the updated policy.
-        </p>
-      </section>
+              <h2>9. International use</h2>
+              <p>
+                Your data may be processed and stored in countries other than where you live. We apply the protections described in
+                this policy regardless of location.
+              </p>
 
-      <section>
-        <h2>11. Contact</h2>
-        <p>
-          Questions or requests? Email <a href="mailto:anthonyvvza@gmail.com">anthonyvvza@gmail.com</a>.
-        </p>
-      </section>
-    </main>
+              <h2>10. Changes to this policy</h2>
+              <p>
+                We may update this policy from time to time. If changes are significant, we will provide notice in the app.
+                Continued use of DOODL. after changes means you accept the updated policy.
+              </p>
+
+              <h2>11. Contact</h2>
+              <p>Questions or requests? Email <a href="mailto:anthonyvvza@gmail.com">anthonyvvza@gmail.com</a>.</p>
+            </article>
+          </div>
+
+          <footer class="footerBar">
+            <div class="footerLinks">
+              <a href="/privacy/">privacy</a>
+              <a href="/terms/">terms</a>
+              <a href="mailto:anthonyvvza@gmail.com">support</a>
+              <span>© DOODL. 2025</span>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
-

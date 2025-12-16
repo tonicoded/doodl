@@ -1,5 +1,4 @@
-import { Footer } from "../../components/Footer";
-import { Nav } from "../../components/Nav";
+import Link from "next/link";
 
 export const metadata = {
   title: "Privacy Policy"
@@ -7,11 +6,16 @@ export const metadata = {
 
 export default function PrivacyPage() {
   return (
-    <main className="container">
-      <Nav />
-      <article className="legal">
+    <main>
+      <article className="sheet">
+        <div className="sheetHeaderRow">
+          <Link className="backLink" href="/">
+            ← Home
+          </Link>
+        </div>
+
         <h1>Privacy Policy</h1>
-        <p className="legalMeta">Last updated: December 5, 2025</p>
+        <p className="sheetMeta">Last updated: December 5, 2025</p>
 
         <p>
           DOODL. is built for sharing doodles with friends and family in small groups. This policy explains what we collect,
@@ -92,8 +96,6 @@ export default function PrivacyPage() {
           Questions or requests? Email <a href="mailto:anthonyvvza@gmail.com">anthonyvvza@gmail.com</a>.
         </p>
       </article>
-      <Footer />
     </main>
   );
 }
-

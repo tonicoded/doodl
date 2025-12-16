@@ -1,22 +1,21 @@
 import Link from "next/link";
-import { Nav } from "../components/Nav";
 
 export default function NotFound() {
   return (
-    <main className="container">
-      <Nav />
-      <section className="hero" style={{ marginTop: 18 }}>
-        <h1 className="h1" style={{ fontSize: 42 }}>
-          Page not found
-        </h1>
-        <p className="sub">That page doesn’t exist.</p>
-        <div className="ctaRow" style={{ marginTop: 16 }}>
-          <Link className="button buttonPrimary" href="/">
-            Go home
-          </Link>
-        </div>
-      </section>
+    <main>
+      <div className="brand">
+        <img src="/logo.png" alt="DOODL." width={72} height={72} />
+        <span className="brandName">DOODL.</span>
+      </div>
+
+      <h1 className="heroTitle">Page not found</h1>
+      <p className="heroSub">That page doesn’t exist.</p>
+
+      <div className="ctaRow">
+        <Link className="btn btnPrimary" href="/">
+          Go home
+        </Link>
+      </div>
     </main>
   );
 }
-
