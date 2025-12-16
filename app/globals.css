@@ -352,3 +352,40 @@ a {
 .doc {
   padding-top: 6px;
 }
+
+.supportSheet {
+  text-align: center;
+  max-width: 520px;
+}
+
+.supportTitle {
+  margin: 14px 0 6px;
+  font-size: 34px;
+  letter-spacing: -0.03em;
+}
+
+.supportText {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.supportEmail {
+  margin: 14px auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.supportEmail:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
