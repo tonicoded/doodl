@@ -1,11 +1,13 @@
 import Link from "next/link";
 
 export default function Page() {
+  const appStoreUrl = "https://apps.apple.com/app/idYOUR_APP_ID";
+  const googlePlayUrl = "https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME";
+
   return (
-    <main>
+    <main className="home">
       <div className="brand">
         <img src="/logo.png" alt="DOODL." width={72} height={72} />
-        <span className="brandName">DOODL.</span>
       </div>
 
       <div className="pillRow" aria-label="Highlights">
@@ -20,10 +22,16 @@ export default function Page() {
         private.
       </p>
 
-      <div className="ctaRow">
-        <a className="btn btnPrimary btnDisabled" href="#" aria-disabled="true">
-          Coming soon on the App Store
+      <div className="storeRow" aria-label="Download">
+        <a className="storeBadge" href={appStoreUrl} target="_blank" rel="noreferrer">
+          <img src="/appstore.svg" alt="Download on the App Store" />
         </a>
+        <a className="storeBadge" href={googlePlayUrl} target="_blank" rel="noreferrer">
+          <img src="/googleplay.svg" alt="Get it on Google Play" />
+        </a>
+      </div>
+
+      <div className="smallLinks" aria-label="Legal">
         <Link className="btn btnSecondary" href="/privacy/">
           Privacy
         </Link>

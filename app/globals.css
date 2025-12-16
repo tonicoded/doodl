@@ -2,7 +2,7 @@
   color-scheme: dark;
   --text: rgba(255, 255, 255, 0.92);
   --muted: rgba(255, 255, 255, 0.72);
-  --bg: #05040a;
+  --bg: #060714;
   --panel: rgba(8, 6, 10, 0.38);
   --card: rgba(255, 255, 255, 0.08);
   --border: rgba(255, 255, 255, 0.16);
@@ -32,9 +32,10 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: radial-gradient(circle at 18% 18%, rgba(135, 200, 79, 0.22), transparent 30%),
-    radial-gradient(circle at 80% 28%, rgba(21, 182, 168, 0.18), transparent 34%),
-    radial-gradient(circle at 55% 85%, rgba(22, 103, 255, 0.18), transparent 35%), var(--bg);
+  background: radial-gradient(circle at 20% 18%, rgba(135, 200, 79, 0.22), transparent 40%),
+    radial-gradient(circle at 82% 22%, rgba(21, 182, 168, 0.18), transparent 42%),
+    radial-gradient(circle at 60% 88%, rgba(22, 103, 255, 0.18), transparent 46%),
+    linear-gradient(180deg, #0b241a 0%, #0b1220 46%, #060714 100%);
   overflow: hidden;
 }
 
@@ -69,20 +70,11 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 25% 18%, rgba(135, 200, 79, 0.24), transparent 42%),
-    radial-gradient(circle at 78% 30%, rgba(21, 182, 168, 0.22), transparent 46%),
-    radial-gradient(circle at 55% 86%, rgba(22, 103, 255, 0.18), transparent 46%),
-    linear-gradient(180deg, rgba(8, 6, 10, 0.34), rgba(8, 6, 10, 0.82));
+  background: radial-gradient(circle at 22% 18%, rgba(135, 200, 79, 0.22), transparent 42%),
+    radial-gradient(circle at 82% 26%, rgba(21, 182, 168, 0.18), transparent 46%),
+    radial-gradient(circle at 58% 90%, rgba(22, 103, 255, 0.18), transparent 52%),
+    linear-gradient(180deg, rgba(6, 7, 20, 0.2), rgba(6, 7, 20, 0.92));
   filter: saturate(1.05);
-}
-
-.frame::after {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  border-radius: calc(var(--radius-xl) - 10px);
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
-  pointer-events: none;
 }
 
 .frameInner {
@@ -97,7 +89,6 @@ a {
   flex: 1;
   overflow: auto;
   padding: clamp(18px, 4.8vw, 28px);
-  text-align: center;
 }
 
 .frameScroll::-webkit-scrollbar {
@@ -113,16 +104,10 @@ a {
 }
 
 .brand img {
-  width: 72px;
-  height: 72px;
-  border-radius: 16px;
+  width: 84px;
+  height: 84px;
+  border-radius: 18px;
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
-}
-
-.brandName {
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  font-size: 22px;
 }
 
 .heroTitle {
@@ -139,6 +124,7 @@ a {
   font-size: clamp(14px, 2vw, 17px);
   line-height: 1.6;
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  max-width: 44ch;
 }
 
 .pillRow {
@@ -147,6 +133,7 @@ a {
   gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 340px;
 }
 
 .pill {
@@ -166,6 +153,41 @@ a {
 
 .ctaRow {
   margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.storeRow {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.storeBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.storeBadge img {
+  height: 44px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+}
+
+.smallLinks {
+  margin-top: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -221,7 +243,7 @@ a {
   text-align: left;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(0, 0, 0, 0.18);
+  background: rgba(0, 0, 0, 0.12);
   padding: 18px;
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34);
 }
@@ -287,7 +309,7 @@ a {
 .footerBar {
   padding: 12px 16px 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
-  background: linear-gradient(180deg, rgba(8, 6, 10, 0.18), rgba(8, 6, 10, 0.5));
+  background: linear-gradient(180deg, rgba(6, 7, 20, 0.18), rgba(6, 7, 20, 0.52));
   text-align: center;
   color: rgba(255, 255, 255, 0.72);
   font-size: 12px;
@@ -322,12 +344,20 @@ a {
     border: none;
   }
 
-  .frame::after {
-    inset: 0;
-    border-radius: 0;
-  }
-
   .frameScroll {
     padding: 18px 16px;
   }
+}
+
+.home {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.doc {
+  padding-top: 6px;
 }

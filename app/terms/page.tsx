@@ -6,7 +6,11 @@ export const metadata = {
 
 export default function TermsPage() {
   return (
-    <main>
+    <main className="doc">
+      <div className="brand" style={{ marginTop: 6 }}>
+        <img src="/logo.png" alt="DOODL." width={72} height={72} />
+      </div>
+
       <article className="sheet">
         <div className="sheetHeaderRow">
           <Link className="backLink" href="/">

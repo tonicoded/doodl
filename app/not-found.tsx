@@ -2,10 +2,9 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main>
+    <main className="home">
       <div className="brand">
         <img src="/logo.png" alt="DOODL." width={72} height={72} />
-        <span className="brandName">DOODL.</span>
       </div>
 
       <h1 className="heroTitle">Page not found</h1>
