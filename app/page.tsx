@@ -8,12 +8,6 @@ export default function Page() {
         <img src="/logo.png" alt="DOODL." width={124} height={124} />
       </div>
 
-      <div className="pillRow" aria-label="Highlights">
-        <span className="pill">Send doodles</span>
-        <span className="pill">Small groups</span>
-        <span className="pill">Private by default</span>
-      </div>
-
       <h1 className="heroTitle">Send quick doodles to your friends &amp; family.</h1>
       <p className="heroSub">
         Draw something in seconds, tap send, and it lands in your group’s inbox. Built for small circles — fast, fun, and
@@ -28,8 +22,6 @@ export default function Page() {
           <img src="/googleplay.svg" alt="Get it on Google Play" />
         </a>
       </div>
-
-      <p className="hintText">Tip: keep groups small — it feels more personal.</p>
     </main>
   );
 }
