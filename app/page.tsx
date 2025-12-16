@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function Page() {
   const appStoreUrl = "https://apps.apple.com/app/idYOUR_APP_ID";
   const googlePlayUrl = "https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME";
@@ -7,7 +5,7 @@ export default function Page() {
   return (
     <main className="home">
       <div className="brand">
-        <img src="/logo.png" alt="DOODL." width={72} height={72} />
+        <img src="/logo.png" alt="DOODL." width={124} height={124} />
       </div>
 
       <div className="pillRow" aria-label="Highlights">
@@ -29,15 +27,6 @@ export default function Page() {
         <a className="storeBadge" href={googlePlayUrl} target="_blank" rel="noreferrer">
           <img src="/googleplay.svg" alt="Get it on Google Play" />
         </a>
-      </div>
-
-      <div className="smallLinks" aria-label="Legal">
-        <Link className="btn btnSecondary" href="/privacy/">
-          Privacy
-        </Link>
-        <Link className="btn btnSecondary" href="/terms/">
-          Terms
-        </Link>
       </div>
 
       <p className="hintText">Tip: keep groups small — it feels more personal.</p>

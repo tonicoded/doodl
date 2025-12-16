@@ -104,10 +104,11 @@ a {
 }
 
 .brand img {
-  width: 84px;
-  height: 84px;
-  border-radius: 18px;
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+  width: min(240px, 70%);
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  mix-blend-mode: screen;
 }
 
 .heroTitle {
@@ -184,15 +185,6 @@ a {
   width: auto;
   display: block;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
-}
-
-.smallLinks {
-  margin-top: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
 }
 
 .btn {
@@ -356,6 +348,7 @@ a {
   align-items: center;
   justify-content: center;
   text-align: center;
+  gap: 0;
 }
 
 .doc {

@@ -8,7 +8,7 @@ export default function TermsPage() {
   return (
     <main className="doc">
       <div className="brand" style={{ marginTop: 6 }}>
-        <img src="/logo.png" alt="DOODL." width={72} height={72} />
+        <img src="/logo.png" alt="DOODL." width={110} height={110} />
       </div>
 
       <article className="sheet">

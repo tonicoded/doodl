@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <main className="home">
       <div className="brand">
-        <img src="/logo.png" alt="DOODL." width={72} height={72} />
+        <img src="/logo.png" alt="DOODL." width={124} height={124} />
       </div>
 
       <h1 className="heroTitle">Page not found</h1>
