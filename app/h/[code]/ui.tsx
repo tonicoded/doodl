@@ -10,9 +10,9 @@ export default function OpenInAppClient({ code }: Props) {
   const [didAttemptOpen, setDidAttemptOpen] = useState(false);
 
   const appStoreUrl =
-    (process.env.NEXT_PUBLIC_APP_STORE_URL as string | undefined) ?? "https://doodl-app.vercel.app/";
+    (process.env.NEXT_PUBLIC_APP_STORE_URL as string | undefined) ?? "https://doodl-me.com/";
   const googlePlayUrl =
-    (process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL as string | undefined) ?? "https://doodl-app.vercel.app/";
+    (process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL as string | undefined) ?? "https://doodl-me.com/";
 
   useEffect(() => {
     if (didAttemptOpen) return;
