@@ -28,3 +28,23 @@ export async function submitAnonymousDoodle(shortCode: string, contentBase64: st
   return (await response.json()) as string;
 }
 
+export async function isAnonymousLinkEnabled(shortCode: string) {
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/anonymous_link_is_enabled_public`, {
+    method: "POST",
+    headers: {
+      apikey: SUPABASE_ANON_KEY,
+      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      p_short_code: shortCode,
+    }),
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    throw new Error("failed to check link");
+  }
+
+  return (await response.json()) as boolean;
+}

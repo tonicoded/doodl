@@ -34,10 +34,17 @@ export default function OpenInAppClient({ code }: Props) {
     };
 
     document.addEventListener("visibilitychange", onVisibilityChange);
-    window.location.href = deepLinkUrl;
+
+    // Avoid navigating away to a custom scheme (which can show "invalid address" in Safari).
+    // Using a hidden iframe keeps the landing page visible, while still triggering the app open.
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = deepLinkUrl;
+    document.body.appendChild(iframe);
 
     return () => {
       window.clearTimeout(timer);
+      iframe.remove();
       document.removeEventListener("visibilitychange", onVisibilityChange);
     };
   }, [appStoreUrl, code, didAttemptOpen, googlePlayUrl]);
@@ -56,9 +63,16 @@ export default function OpenInAppClient({ code }: Props) {
           <p className="heroSub anonSub">If you have the app, you’ll be taken there to draw and send an anonymous doodl.</p>
 
           <div className="ctaRow" style={{ marginTop: 18 }}>
-            <a className="btn btnPrimary" href={deepLinkUrl}>
+            <button
+              type="button"
+              className="btn btnPrimary"
+              onClick={() => {
+                // User gesture attempt (more reliable than autoplay).
+                window.location.href = deepLinkUrl;
+              }}
+            >
               open DOODL
-            </a>
+            </button>
           </div>
 
           <div className="dividerRow" aria-hidden="true" style={{ marginTop: 18 }}>
