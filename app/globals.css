@@ -224,6 +224,7 @@ a {
   align-items: center;
   gap: 10px;
   text-align: center;
+  padding-bottom: 92px;
 }
 
 .anonTitle {
@@ -261,6 +262,72 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(0, 0, 0, 0.14);
   padding: 12px;
+}
+
+.anonStickyBar {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 12px 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(180deg, rgba(6, 7, 20, 0.18), rgba(6, 7, 20, 0.58));
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+}
+
+.anonStickyBar .btn {
+  flex: 1;
+}
+
+.anonSent {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 14px 14px 16px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.anonSentTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.anonSentTitle {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.anonSentAnother {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.86);
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+.anonSentAnother:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.anonSentSub {
+  margin: 10px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
 }
 
 .anonPalette {

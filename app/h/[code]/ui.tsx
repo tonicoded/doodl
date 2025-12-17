@@ -12,11 +12,16 @@ export default function AnonymousDoodleClient({ code }: Props) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const pointerDownRef = useRef(false);
   const lastPointRef = useRef<{ x: number; y: number } | null>(null);
+  const lastMidRef = useRef<{ x: number; y: number } | null>(null);
 
   const [strokeColor, setStrokeColor] = useState("#111111");
   const [strokeWidth, setStrokeWidth] = useState(10);
   const [isSending, setIsSending] = useState(false);
   const [statusText, setStatusText] = useState<string | null>(null);
+  const [didSend, setDidSend] = useState(false);
+
+  const appStoreUrl = (process.env.NEXT_PUBLIC_APP_STORE_URL as string | undefined) ?? "/";
+  const googlePlayUrl = (process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL as string | undefined) ?? "/";
 
   const palette = useMemo(
     () => ["#111111", "#ff2a6d", "#ff8a1f", "#ffd24a", "#6AD84A", "#2AD1D1", "#2A9CFF", "#9b5cff"],
@@ -80,6 +85,39 @@ export default function AnonymousDoodleClient({ code }: Props) {
     ctx.stroke();
   }
 
+  function drawSmoothPoint(pt: { x: number; y: number }) {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = strokeColor;
+    ctx.lineWidth = strokeWidth;
+
+    const last = lastPointRef.current;
+    const lastMid = lastMidRef.current;
+    if (!last || !lastMid) {
+      lastPointRef.current = pt;
+      lastMidRef.current = pt;
+      ctx.beginPath();
+      ctx.moveTo(pt.x, pt.y);
+      ctx.lineTo(pt.x, pt.y);
+      ctx.stroke();
+      return;
+    }
+
+    const mid = { x: (last.x + pt.x) / 2, y: (last.y + pt.y) / 2 };
+    ctx.beginPath();
+    ctx.moveTo(lastMid.x, lastMid.y);
+    ctx.quadraticCurveTo(last.x, last.y, mid.x, mid.y);
+    ctx.stroke();
+
+    lastPointRef.current = pt;
+    lastMidRef.current = mid;
+  }
+
   async function onSend() {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -90,6 +128,7 @@ export default function AnonymousDoodleClient({ code }: Props) {
       const dataURL = canvas.toDataURL("image/png");
       await submitAnonymousDoodle(code, dataURL);
       setStatusText("sent");
+      setDidSend(true);
       setTimeout(() => setStatusText(null), 1200);
       clearCanvas();
     } catch (error) {
@@ -103,7 +142,7 @@ export default function AnonymousDoodleClient({ code }: Props) {
   return (
     <main className="sheet anonSheet">
       <div className="brand">
-        <img src="/logo.png" alt="DOODL." width={180} height={180} />
+        <img src="/logo.png" alt="DOODL." width={150} height={150} />
       </div>
 
       <h1 className="heroTitle anonTitle">send me a doodl</h1>
@@ -119,23 +158,24 @@ export default function AnonymousDoodleClient({ code }: Props) {
             const pt = getPointFromEvent(event);
             if (!pt) return;
             lastPointRef.current = pt;
-            drawLine(pt, pt);
+            lastMidRef.current = pt;
+            drawSmoothPoint(pt);
           }}
           onPointerMove={(event) => {
             if (!pointerDownRef.current) return;
             const pt = getPointFromEvent(event);
-            const last = lastPointRef.current;
-            if (!pt || !last) return;
-            drawLine(last, pt);
-            lastPointRef.current = pt;
+            if (!pt) return;
+            drawSmoothPoint(pt);
           }}
           onPointerUp={() => {
             pointerDownRef.current = false;
             lastPointRef.current = null;
+            lastMidRef.current = null;
           }}
           onPointerCancel={() => {
             pointerDownRef.current = false;
             lastPointRef.current = null;
+            lastMidRef.current = null;
           }}
         />
       </div>
@@ -172,7 +212,34 @@ export default function AnonymousDoodleClient({ code }: Props) {
         </div>
       </div>
 
-      <div className="ctaRow" style={{ marginTop: 16 }}>
+      {didSend ? (
+        <section className="anonSent" aria-label="Sent">
+          <div className="anonSentTitleRow">
+            <div className="anonSentTitle">Sent</div>
+            <button
+              type="button"
+              className="anonSentAnother"
+              onClick={() => {
+                setDidSend(false);
+                setStatusText(null);
+              }}
+            >
+              send another
+            </button>
+          </div>
+          <p className="anonSentSub">Download DOODL. to receive doodls too.</p>
+          <div className="storeRow" aria-label="Download">
+            <a className="storeBadge" href={appStoreUrl} target="_blank" rel="noreferrer">
+              <img src="/appstore.svg" alt="Download on the App Store" />
+            </a>
+            <a className="storeBadge" href={googlePlayUrl} target="_blank" rel="noreferrer">
+              <img src="/googleplay.svg" alt="Get it on Google Play" />
+            </a>
+          </div>
+        </section>
+      ) : null}
+
+      <div className="anonStickyBar" aria-label="Actions">
         <button type="button" className="btn btnSecondary" onClick={clearCanvas} disabled={isSending}>
           clear
         </button>
@@ -190,4 +257,3 @@ export default function AnonymousDoodleClient({ code }: Props) {
     </main>
   );
 }
-
