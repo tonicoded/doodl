@@ -19,7 +19,7 @@ export default function TermsPage() {
         </div>
 
         <h1>Terms of Service</h1>
-        <p className="sheetMeta">Last updated: December 5, 2025</p>
+        <p className="sheetMeta">Last updated: December 17, 2025</p>
 
         <p>
           Welcome to DOODL. By using our app, you agree to these terms. If you do not agree, please do not use DOODL.
@@ -31,8 +31,30 @@ export default function TermsPage() {
           account secure and to use DOODL. respectfully with your friends and family.
         </p>
 
-        <h2>2. No subscriptions</h2>
-        <p>DOODL. currently does not offer paid subscriptions or billing.</p>
+        <h2>2. Subscriptions &amp; purchases</h2>
+        <p>
+          DOODL. may offer optional in-app purchases, including auto-renewing subscriptions and a one-time “lifetime” purchase.
+          Purchases are processed by Apple through the App Store.
+        </p>
+        <ul>
+          <li>
+            <strong>Free trials (if offered):</strong> if you start a trial, you will be charged at the end of the trial period
+            unless you cancel before it ends.
+          </li>
+          <li>
+            <strong>Auto-renew subscriptions:</strong> subscriptions renew automatically unless cancelled at least 24 hours before
+            the end of the current period (timing and rules are controlled by Apple).
+          </li>
+          <li>
+            <strong>Manage/cancel:</strong> you can manage or cancel in Apple ID settings on your device.
+          </li>
+          <li>
+            <strong>Restore:</strong> use “Restore Purchases” in the app to restore eligible purchases.
+          </li>
+          <li>
+            <strong>Refunds:</strong> refunds are handled by Apple under their policies.
+          </li>
+        </ul>
 
         <h2>3. Your content and data</h2>
         <p>

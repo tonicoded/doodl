@@ -19,7 +19,7 @@ export default function PrivacyPage() {
         </div>
 
         <h1>Privacy Policy</h1>
-        <p className="sheetMeta">Last updated: December 5, 2025</p>
+        <p className="sheetMeta">Last updated: December 17, 2025</p>
 
         <p>
           DOODL. is built for sharing doodles with friends and family in small groups. This policy explains what we collect,
@@ -41,6 +41,10 @@ export default function PrivacyPage() {
             <strong>Push tokens:</strong> APNs device tokens and environment (sandbox/production) to deliver notifications.
           </li>
           <li><strong>Device/app info:</strong> app version, device/OS version, and limited logs for support and reliability.</li>
+          <li>
+            <strong>Purchase data (if you buy Pro):</strong> subscription status and entitlement information. Payments are handled by
+            Apple. We may use a third-party provider (RevenueCat) to manage subscription status across devices.
+          </li>
         </ul>
 
         <h2>2. How we store it</h2>
@@ -62,6 +66,10 @@ export default function PrivacyPage() {
         <p>
           We do not sell your personal data. We share limited information with service providers (e.g., Supabase and Apple Push
           Notification service) under agreements that require privacy and security. We may share data if required by law.
+        </p>
+        <p>
+          If you purchase Pro, we may share information with <strong>RevenueCat</strong> (subscription management) and Apple’s App
+          Store services to validate and manage purchases.
         </p>
 
         <h2>5. Retention and control</h2>
