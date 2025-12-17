@@ -20,8 +20,10 @@ export default function AnonymousDoodleClient({ code }: Props) {
   const [statusText, setStatusText] = useState<string | null>(null);
   const [didSend, setDidSend] = useState(false);
 
-  const appStoreUrl = (process.env.NEXT_PUBLIC_APP_STORE_URL as string | undefined) ?? "/";
-  const googlePlayUrl = (process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL as string | undefined) ?? "/";
+  const appStoreUrl =
+    (process.env.NEXT_PUBLIC_APP_STORE_URL as string | undefined) ?? "https://doodl-app.vercel.app/";
+  const googlePlayUrl =
+    (process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL as string | undefined) ?? "https://doodl-app.vercel.app/";
 
   const palette = useMemo(
     () => ["#111111", "#ff2a6d", "#ff8a1f", "#ffd24a", "#6AD84A", "#2AD1D1", "#2A9CFF", "#9b5cff"],
@@ -127,9 +129,8 @@ export default function AnonymousDoodleClient({ code }: Props) {
     try {
       const dataURL = canvas.toDataURL("image/png");
       await submitAnonymousDoodle(code, dataURL);
-      setStatusText("sent");
       setDidSend(true);
-      setTimeout(() => setStatusText(null), 1200);
+      setStatusText(null);
       clearCanvas();
     } catch (error) {
       const message = error instanceof Error ? error.message : "failed to send";
@@ -140,104 +141,83 @@ export default function AnonymousDoodleClient({ code }: Props) {
   }
 
   return (
-    <main className="sheet anonSheet">
-      <div className="brand">
-        <img src="/logo.png" alt="DOODL." width={150} height={150} />
-      </div>
+    <div className="anonPage">
+      <div className="anonScroll">
+        <main className="sheet anonSheet">
+          <div className="brand">
+            <img src="/logo.png" alt="DOODL." width={150} height={150} />
+          </div>
 
-      <h1 className="heroTitle anonTitle">send me a doodl</h1>
-      <p className="heroSub anonSub">This goes to their anonymous inbox. Your name won’t show.</p>
+          <h1 className="heroTitle anonTitle">send me a doodl</h1>
+          <p className="heroSub anonSub">This goes to their anonymous inbox. Your name won’t show.</p>
 
-      <div className="anonCanvasWrap" aria-label="Canvas">
-        <canvas
-          ref={canvasRef}
-          className="anonCanvas"
-          onPointerDown={(event) => {
-            pointerDownRef.current = true;
-            event.currentTarget.setPointerCapture(event.pointerId);
-            const pt = getPointFromEvent(event);
-            if (!pt) return;
-            lastPointRef.current = pt;
-            lastMidRef.current = pt;
-            drawSmoothPoint(pt);
-          }}
-          onPointerMove={(event) => {
-            if (!pointerDownRef.current) return;
-            const pt = getPointFromEvent(event);
-            if (!pt) return;
-            drawSmoothPoint(pt);
-          }}
-          onPointerUp={() => {
-            pointerDownRef.current = false;
-            lastPointRef.current = null;
-            lastMidRef.current = null;
-          }}
-          onPointerCancel={() => {
-            pointerDownRef.current = false;
-            lastPointRef.current = null;
-            lastMidRef.current = null;
-          }}
-        />
-      </div>
-
-      <div className="anonTools">
-        <div className="anonPalette" aria-label="Colors">
-          {palette.map((color) => {
-            const selected = color.toLowerCase() === strokeColor.toLowerCase();
-            return (
-              <button
-                key={color}
-                type="button"
-                className={`anonSwatch ${selected ? "anonSwatchSelected" : ""}`}
-                style={{ background: color }}
-                onClick={() => setStrokeColor(color)}
-                aria-label={`Color ${color}`}
-              />
-            );
-          })}
-        </div>
-
-        <div className="anonSliderRow">
-          <span className="anonLabel">size</span>
-          <input
-            className="anonSlider"
-            type="range"
-            min={4}
-            max={24}
-            value={strokeWidth}
-            onChange={(e) => setStrokeWidth(parseInt(e.target.value, 10))}
-            aria-label="Brush size"
-          />
-          <span className="anonValue">{strokeWidth}</span>
-        </div>
-      </div>
-
-      {didSend ? (
-        <section className="anonSent" aria-label="Sent">
-          <div className="anonSentTitleRow">
-            <div className="anonSentTitle">Sent</div>
-            <button
-              type="button"
-              className="anonSentAnother"
-              onClick={() => {
-                setDidSend(false);
-                setStatusText(null);
+          <div className="anonCanvasWrap" aria-label="Canvas">
+            <canvas
+              ref={canvasRef}
+              className="anonCanvas"
+              onPointerDown={(event) => {
+                pointerDownRef.current = true;
+                event.currentTarget.setPointerCapture(event.pointerId);
+                const pt = getPointFromEvent(event);
+                if (!pt) return;
+                lastPointRef.current = pt;
+                lastMidRef.current = pt;
+                drawSmoothPoint(pt);
               }}
-            >
-              send another
-            </button>
+              onPointerMove={(event) => {
+                if (!pointerDownRef.current) return;
+                const pt = getPointFromEvent(event);
+                if (!pt) return;
+                drawSmoothPoint(pt);
+              }}
+              onPointerUp={() => {
+                pointerDownRef.current = false;
+                lastPointRef.current = null;
+                lastMidRef.current = null;
+              }}
+              onPointerCancel={() => {
+                pointerDownRef.current = false;
+                lastPointRef.current = null;
+                lastMidRef.current = null;
+              }}
+            />
           </div>
-          <p className="anonSentSub">Download DOODL. to receive doodls too.</p>
-          <div className="storeRow" aria-label="Download">
-            <a className="storeBadge" href={appStoreUrl} target="_blank" rel="noreferrer">
-              <img src="/appstore.svg" alt="Download on the App Store" />
-            </a>
-            <a className="storeBadge" href={googlePlayUrl} target="_blank" rel="noreferrer">
-              <img src="/googleplay.svg" alt="Get it on Google Play" />
-            </a>
+
+          <div className="anonTools">
+            <div className="anonPalette" aria-label="Colors">
+              {palette.map((color) => {
+                const selected = color.toLowerCase() === strokeColor.toLowerCase();
+                return (
+                  <button
+                    key={color}
+                    type="button"
+                    className={`anonSwatch ${selected ? "anonSwatchSelected" : ""}`}
+                    style={{ background: color }}
+                    onClick={() => setStrokeColor(color)}
+                    aria-label={`Color ${color}`}
+                  />
+                );
+              })}
+            </div>
+
+            <div className="anonSliderRow">
+              <span className="anonLabel">size</span>
+              <input
+                className="anonSlider"
+                type="range"
+                min={4}
+                max={24}
+                value={strokeWidth}
+                onChange={(e) => setStrokeWidth(parseInt(e.target.value, 10))}
+                aria-label="Brush size"
+              />
+              <span className="anonValue">{strokeWidth}</span>
+            </div>
           </div>
-        </section>
-      ) : null}
+
+          {statusText ? <p className="anonToast">{statusText}</p> : null}
+        </main>
+      </div>
 
       <div className="anonStickyBar" aria-label="Actions">
         <button type="button" className="btn btnSecondary" onClick={clearCanvas} disabled={isSending}>
@@ -253,7 +233,53 @@ export default function AnonymousDoodleClient({ code }: Props) {
         </button>
       </div>
 
-      {statusText ? <p className="anonToast">{statusText}</p> : null}
-    </main>
+      {didSend ? (
+        <div
+          className="anonModalBackdrop"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Sent"
+          onClick={() => setDidSend(false)}
+        >
+          <div className="anonModal" onClick={(e) => e.stopPropagation()}>
+            <div className="anonModalHeader">
+              <div className="anonModalTitle">sent</div>
+              <button type="button" className="anonModalClose" onClick={() => setDidSend(false)} aria-label="Close">
+                ✕
+              </button>
+            </div>
+            <p className="anonModalSub">Download DOODL. now to receive doodls too.</p>
+            <div className="storeRow" aria-label="Download">
+              <a className="storeBadge" href={appStoreUrl} target="_blank" rel="noreferrer">
+                <img src="/appstore.svg" alt="Download on the App Store" />
+              </a>
+              <a className="storeBadge" href={googlePlayUrl} target="_blank" rel="noreferrer">
+                <img src="/googleplay.svg" alt="Get it on Google Play" />
+              </a>
+            </div>
+            <div className="ctaRow" style={{ marginTop: 14 }}>
+              <button
+                type="button"
+                className="btn btnSecondary"
+                onClick={() => {
+                  setDidSend(false);
+                }}
+              >
+                close
+              </button>
+              <button
+                type="button"
+                className="btn btnPrimary"
+                onClick={() => {
+                  setDidSend(false);
+                }}
+              >
+                send another
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </div>
   );
 }

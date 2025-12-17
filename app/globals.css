@@ -218,13 +218,30 @@ a {
   pointer-events: none;
 }
 
+.anonPage {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.anonScroll {
+  flex: 1;
+  overflow: auto;
+  padding: clamp(18px, 4.8vw, 28px);
+}
+
+.anonScroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 .anonSheet {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   text-align: center;
-  padding-bottom: 92px;
 }
 
 .anonTitle {
@@ -265,66 +282,75 @@ a {
 }
 
 .anonStickyBar {
-  position: sticky;
-  bottom: 0;
+  flex: 0 0 auto;
   width: 100%;
-  margin-top: 14px;
   display: flex;
   justify-content: center;
   gap: 10px;
-  padding: 12px 12px 12px;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: linear-gradient(180deg, rgba(6, 7, 20, 0.18), rgba(6, 7, 20, 0.58));
+  padding: 12px clamp(18px, 4.8vw, 28px) 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(180deg, rgba(6, 7, 20, 0.12), rgba(6, 7, 20, 0.62));
   backdrop-filter: blur(10px);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 -18px 44px rgba(0, 0, 0, 0.25);
 }
 
 .anonStickyBar .btn {
   flex: 1;
 }
 
-.anonSent {
-  width: 100%;
-  margin-top: 10px;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.08);
-  padding: 14px 14px 16px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+.anonModalBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: grid;
+  place-items: center;
+  padding: 18px 16px;
 }
 
-.anonSentTitleRow {
+.anonModal {
+  width: min(520px, 100%);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(14px);
+  padding: 16px 14px 16px;
+  box-shadow: 0 28px 74px rgba(0, 0, 0, 0.48);
+  text-align: center;
+}
+
+.anonModalHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
 }
 
-.anonSentTitle {
-  font-weight: 900;
+.anonModalTitle {
+  font-weight: 950;
   letter-spacing: -0.02em;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.92);
+  text-transform: uppercase;
 }
 
-.anonSentAnother {
+.anonModalClose {
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.86);
   border-radius: 999px;
-  padding: 8px 10px;
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: 0.02em;
+  width: 34px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  font-weight: 900;
   cursor: pointer;
 }
 
-.anonSentAnother:hover {
+.anonModalClose:hover {
   background: rgba(255, 255, 255, 0.12);
 }
 
-.anonSentSub {
+.anonModalSub {
   margin: 10px 0 0;
   color: rgba(255, 255, 255, 0.78);
   font-size: 13px;

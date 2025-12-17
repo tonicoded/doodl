@@ -12,8 +12,8 @@ export default function Page({ params }: PageProps) {
     <div className="stage">
       <div className="frame">
         <div className="frameInner">
-          <div className="frameScroll">
-            {!isValid ? (
+          {!isValid ? (
+            <div className="frameScroll">
               <main className="sheet">
                 <div className="brand">
                   <img src="/logo.png" alt="DOODL." width={180} height={180} />
@@ -25,13 +25,12 @@ export default function Page({ params }: PageProps) {
                   This link looks invalid. Ask them for a fresh link from DOODL. settings.
                 </p>
               </main>
-            ) : (
-              <AnonymousDoodleClient code={code} />
-            )}
-          </div>
+            </div>
+          ) : (
+            <AnonymousDoodleClient code={code} />
+          )}
         </div>
       </div>
     </div>
   );
 }
-
