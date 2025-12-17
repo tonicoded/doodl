@@ -1,4 +1,4 @@
-import AnonymousDoodleClient from "./ui";
+import OpenInAppClient from "./ui";
 
 type PageProps = {
   params: { code: string };
@@ -27,7 +27,7 @@ export default function Page({ params }: PageProps) {
               </main>
             </div>
           ) : (
-            <AnonymousDoodleClient code={code} />
+            <OpenInAppClient code={code} />
           )}
         </div>
       </div>
