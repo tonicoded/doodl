@@ -19,7 +19,7 @@ export default function TermsPage() {
         </div>
 
         <h1>Terms of Service</h1>
-        <p className="sheetMeta">Last updated: December 17, 2025</p>
+        <p className="sheetMeta">Last updated: December 18, 2025</p>
 
         <p>
           Welcome to DOODL. By using our app, you agree to these terms. If you do not agree, please do not use DOODL.
@@ -70,32 +70,52 @@ export default function TermsPage() {
           <li>Attempt to disrupt, reverse engineer, or misuse DOODL.</li>
         </ul>
 
-        <h2>5. Privacy</h2>
+        <h2>5. User-generated content &amp; moderation</h2>
+        <p>
+          DOODL. includes user-generated content (like doodles and profile information). We provide tools and enforce rules to reduce
+          abuse and keep the app safe.
+        </p>
+        <ul>
+          <li>
+            <strong>Report:</strong> you can report objectionable content inside the app. We review reports and aim to take action
+            within <strong>24 hours</strong>, which may include removing content and restricting or ejecting abusive users.
+          </li>
+          <li>
+            <strong>Block:</strong> you can block abusive users/senders. Blocking removes their content from your feed immediately and
+            stops future content from reaching you where technically possible.
+          </li>
+          <li>
+            <strong>Enforcement:</strong> we may remove content, suspend features, or terminate accounts for violations of these Terms
+            or for safety/security reasons.
+          </li>
+        </ul>
+
+        <h2>6. Privacy</h2>
         <p>
           Our Privacy Policy explains what we collect and how we protect it. By using DOODL. you also agree to the Privacy Policy.
         </p>
 
-        <h2>6. Service changes and availability</h2>
+        <h2>7. Service changes and availability</h2>
         <p>
           We may update features, limit access, or stop offering the app. We’ll aim to give notice when changes are significant.
         </p>
 
-        <h2>7. Disclaimers</h2>
+        <h2>8. Disclaimers</h2>
         <p>DOODL. is provided “as is” without warranties. We do not promise uninterrupted or error-free service.</p>
 
-        <h2>8. Limitation of liability</h2>
+        <h2>9. Limitation of liability</h2>
         <p>
           To the fullest extent permitted by law, DOODL. and its team are not liable for indirect, incidental, special,
           consequential, or punitive damages, or any loss of data, revenue, profits, or goodwill arising from your use of DOODL.
         </p>
 
-        <h2>9. Termination</h2>
+        <h2>10. Termination</h2>
         <p>You may stop using DOODL. at any time. We may suspend or end access if you violate these terms or misuse the service.</p>
 
-        <h2>10. Changes to these terms</h2>
+        <h2>11. Changes to these terms</h2>
         <p>We may update these terms occasionally. Continued use after changes means you accept the updated terms.</p>
 
-        <h2>11. Contact</h2>
+        <h2>12. Contact</h2>
         <p>
           Questions or concerns? Email <a href="mailto:anthonyvvza@gmail.com">anthonyvvza@gmail.com</a>.
         </p>

@@ -19,7 +19,7 @@ export default function PrivacyPage() {
         </div>
 
         <h1>Privacy Policy</h1>
-        <p className="sheetMeta">Last updated: December 17, 2025</p>
+        <p className="sheetMeta">Last updated: December 18, 2025</p>
 
         <p>
           DOODL. is built for sharing doodles with friends and family in small groups. This policy explains what we collect,
@@ -34,6 +34,11 @@ export default function PrivacyPage() {
           </li>
           <li><strong>Group info:</strong> groups you create or join and group membership.</li>
           <li><strong>Doodles:</strong> doodles you create and send (including image/base64 content).</li>
+          <li>
+            <strong>Safety &amp; moderation data:</strong> blocks you create and reports you submit (including the reported content ID,
+            a reason, and timestamps). For anonymous doodles, we may store a non-personal sender identifier to support blocking and
+            abuse prevention.
+          </li>
           <li>
             <strong>Activity data:</strong> timestamps and “last active” signals to show online/offline status and streaks.
           </li>
@@ -58,7 +63,7 @@ export default function PrivacyPage() {
           <li>Operate the app (sync doodles, groups, inbox/unread counts).</li>
           <li>Send notifications when new doodles arrive.</li>
           <li>Provide support when you contact us.</li>
-          <li>Maintain safety and prevent abuse.</li>
+          <li>Maintain safety and prevent abuse (including blocking/reporting and moderation actions).</li>
           <li>Improve reliability and plan features using aggregated, privacy-focused insights.</li>
         </ul>
 
@@ -75,7 +80,7 @@ export default function PrivacyPage() {
         <h2>5. Retention and control</h2>
         <ul>
           <li>You can request deletion of your account and data; deleting your account removes your content from active systems.</li>
-          <li>We may keep minimal records if required for legal or security purposes.</li>
+          <li>We may keep minimal records (including safety reports/blocks) if required for legal or security purposes.</li>
           <li>You can request a copy or correction of your data by contacting us.</li>
         </ul>
 
