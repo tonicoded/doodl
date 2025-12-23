@@ -20,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
+        <div className="snow" aria-hidden="true" />
         <div className="stage">
           <div className="frame">
             <div className="frameInner">

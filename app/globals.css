@@ -1,9 +1,12 @@
 :root {
   color-scheme: dark;
+  --bg-rgb: 24 2 6;
+  --snow-rgb: 253 247 242;
+  --accent-rgb: 255 59 48;
   --text: rgba(255, 255, 255, 0.92);
   --muted: rgba(255, 255, 255, 0.72);
-  --bg: #060714;
-  --bg-gradient: linear-gradient(180deg, #83b84b 0%, #a9b84d 36%, #49b99e 70%, #238fcf 100%);
+  --bg: #180206;
+  --bg-gradient: linear-gradient(180deg, #180206 0%, #4d0b12 36%, #b11222 72%, #fdf7f2 125%);
   --panel: rgba(8, 6, 10, 0.38);
   --card: rgba(255, 255, 255, 0.08);
   --border: rgba(255, 255, 255, 0.16);
@@ -11,9 +14,9 @@
   --radius-xl: 26px;
   --radius-lg: 18px;
   --radius-md: 14px;
-  --accent-1: #87c84f;
-  --accent-2: #15b6a8;
-  --accent-3: #1667ff;
+  --accent-1: #ff3b30;
+  --accent-2: #ffffff;
+  --accent-3: #b11222;
 }
 
 * {
@@ -34,9 +37,49 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: radial-gradient(1100px 700px at 50% 110%, rgba(0, 0, 0, 0.28), transparent 55%),
-    radial-gradient(900px 520px at 50% -10%, rgba(255, 255, 255, 0.12), transparent 60%),
+    radial-gradient(900px 520px at 50% -10%, rgba(255, 255, 255, 0.14), transparent 60%),
     var(--bg-gradient);
   overflow: hidden;
+}
+
+.snow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.72;
+  filter: blur(0.2px);
+  mix-blend-mode: screen;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0 1px, transparent 2px);
+  background-size: 120px 120px;
+  animation: snowFall 22s linear infinite;
+}
+
+.snow::before,
+.snow::after {
+  content: "";
+  position: absolute;
+  inset: -180px 0 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.75) 0 1px, transparent 2px);
+  background-size: 80px 80px;
+  animation: snowFall 16s linear infinite;
+  opacity: 0.75;
+}
+
+.snow::after {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.65) 0 2px, transparent 4px);
+  background-size: 160px 160px;
+  animation-duration: 28s;
+  opacity: 0.5;
+}
+
+@keyframes snowFall {
+  from {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(10%);
+  }
 }
 
 a {
@@ -52,6 +95,7 @@ a {
   place-items: center;
   padding: clamp(14px, 3vw, 28px);
   isolation: isolate;
+  z-index: 1;
 }
 
 .frame {
@@ -202,9 +246,9 @@ a {
 }
 
 .btnPrimary {
-  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  background: linear-gradient(135deg, var(--accent-1), #ff6a5f);
   color: rgba(8, 6, 10, 0.92);
-  box-shadow: 0 16px 32px rgba(21, 182, 168, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 32px rgba(var(--accent-rgb) / 0.22), 0 0 0 1px rgba(255, 255, 255, 0.14);
 }
 
 .btnSecondary {
@@ -292,7 +336,7 @@ a {
   gap: 10px;
   padding: 12px clamp(18px, 4.8vw, 28px) 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
-  background: linear-gradient(180deg, rgba(6, 7, 20, 0.12), rgba(6, 7, 20, 0.62));
+  background: linear-gradient(180deg, rgb(var(--bg-rgb) / 0.10), rgb(var(--bg-rgb) / 0.70));
   backdrop-filter: blur(10px);
   box-shadow: 0 -18px 44px rgba(0, 0, 0, 0.25);
 }
@@ -520,7 +564,7 @@ a {
 .footerBar {
   padding: 12px 16px 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
-  background: linear-gradient(180deg, rgba(6, 7, 20, 0.18), rgba(6, 7, 20, 0.52));
+  background: linear-gradient(180deg, rgb(var(--bg-rgb) / 0.16), rgb(var(--bg-rgb) / 0.58));
   text-align: center;
   color: rgba(255, 255, 255, 0.72);
   font-size: 12px;
