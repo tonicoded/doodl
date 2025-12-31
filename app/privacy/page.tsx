@@ -22,17 +22,18 @@ export default function PrivacyPage() {
         <p className="sheetMeta">Last updated: December 18, 2025</p>
 
         <p>
-          DOODL. is built for sharing doodles with friends and family in small groups. This policy explains what we collect,
-          why, and how you stay in control. If you do not agree, please do not use DOODL.
+          DOODL. lets you send doodles to friends (and optionally groups). This policy explains what we collect, why, and how you
+          stay in control. If you do not agree, please do not use DOODL.
         </p>
 
         <h2>1. What we collect</h2>
         <p>We collect only what we need to run DOODL:</p>
         <ul>
           <li>
-            <strong>Account details:</strong> username, a pairing/recovery code, a profile ID, and optional avatar URL.
+            <strong>Account details:</strong> username, profile ID, an app-specific secret used to protect your account (pairing /
+            recovery code), and optional avatar URL.
           </li>
-          <li><strong>Group info:</strong> groups you create or join and group membership.</li>
+          <li><strong>Friends &amp; groups:</strong> friends you add, groups you create/join, invites, and membership.</li>
           <li><strong>Doodles:</strong> doodles you create and send (including image/base64 content).</li>
           <li>
             <strong>Safety &amp; moderation data:</strong> blocks you create and reports you submit (including the reported content ID,
@@ -44,6 +45,10 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong>Push tokens:</strong> APNs device tokens and environment (sandbox/production) to deliver notifications.
+          </li>
+          <li>
+            <strong>Widget cache:</strong> to make the widget fast, we store a small cached snapshot of the latest doodl in a shared
+            app-group store on your device.
           </li>
           <li><strong>Device/app info:</strong> app version, device/OS version, and limited logs for support and reliability.</li>
           <li>
@@ -60,7 +65,7 @@ export default function PrivacyPage() {
 
         <h2>3. How we use data</h2>
         <ul>
-          <li>Operate the app (sync doodles, groups, inbox/unread counts).</li>
+          <li>Operate the app (sync doodles, friends/groups, inbox/unread counts).</li>
           <li>Send notifications when new doodles arrive.</li>
           <li>Provide support when you contact us.</li>
           <li>Maintain safety and prevent abuse (including blocking/reporting and moderation actions).</li>

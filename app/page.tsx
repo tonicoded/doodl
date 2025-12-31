@@ -10,10 +10,10 @@ export default function Page() {
         <img src="/logo.png" alt="DOODL." width={124} height={124} />
       </div>
 
-      <h1 className="heroTitle">Send quick doodles to your friends &amp; family.</h1>
+      <h1 className="heroTitle">Send doodles like snaps.</h1>
       <p className="heroSub">
-        Draw something in seconds, tap send, and it lands in your group’s inbox. Built for small circles — fast, fun, and
-        private.
+        Add friends by @username, draw something in seconds, tap send — and it shows up instantly. Your widget can always show the
+        latest doodl.
       </p>
 
       <div className="storeRow" aria-label="Download">

@@ -7,11 +7,11 @@ export const metadata: Metadata = {
     default: "DOODL. — Send doodles to friends",
     template: "%s — DOODL."
   },
-  description: "A simple way to send doodles to friends and family in small groups.",
+  description: "Send doodles to friends like snaps.",
   metadataBase: new URL("https://doodl.app"),
   openGraph: {
     title: "DOODL.",
-    description: "Send doodles to friends and family in small groups.",
+    description: "Send doodles to friends like snaps.",
     type: "website"
   }
 };
@@ -20,7 +20,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <div className="snow" aria-hidden="true" />
         <div className="stage">
           <div className="frame">
             <div className="frameInner">

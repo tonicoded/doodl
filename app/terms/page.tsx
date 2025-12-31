@@ -59,7 +59,7 @@ export default function TermsPage() {
         <h2>3. Your content and data</h2>
         <p>
           You own the content you create (doodles, usernames, preferences). By using DOODL. you give us permission to store and
-          process it so the app works for you and your groups.
+          process it so the app works for you, your friends, and your groups.
         </p>
 
         <h2>4. Acceptable use</h2>
