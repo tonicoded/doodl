@@ -422,6 +422,10 @@ a {
   color: rgba(13, 14, 18, 0.78);
 }
 
+.betaPending {
+  color: rgba(13, 14, 18, 0.64);
+}
+
 .betaActions {
   display: flex;
   gap: 8px;

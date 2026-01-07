@@ -48,3 +48,27 @@ export async function isAnonymousLinkEnabled(shortCode: string) {
 
   return (await response.json()) as boolean;
 }
+
+export async function submitAndroidBetaEmail(email: string, source?: string) {
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/submit_android_beta_email`, {
+    method: "POST",
+    headers: {
+      apikey: SUPABASE_ANON_KEY,
+      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      p_email: email,
+      p_source: source ?? null,
+    }),
+  });
+
+  if (!response.ok) {
+    let message = "failed to submit";
+    try {
+      const payload = await response.json();
+      if (payload?.message) message = payload.message;
+    } catch {}
+    throw new Error(message);
+  }
+}

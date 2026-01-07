@@ -22,7 +22,7 @@ export default function Page() {
         latest doodl.
       </p>
 
-      <StoreBadges appStoreUrl={appStoreUrl} googlePlayUrl={googlePlayUrl} betaEmail={betaEmail} />
+      <StoreBadges appStoreUrl={appStoreUrl} googlePlayUrl={googlePlayUrl} betaEmail={betaEmail} source="home" />
     </main>
   );
 }

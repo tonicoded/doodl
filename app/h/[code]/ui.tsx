@@ -90,6 +90,7 @@ export default function OpenInAppClient({ code }: Props) {
             appStoreUrl={appStoreUrl}
             googlePlayUrl={googlePlayUrl}
             betaEmail={betaEmail}
+            source="open-link"
             rowStyle={{ marginTop: 16 }}
           />
         </main>

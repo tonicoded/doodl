@@ -1,44 +1,48 @@
 "use client";
 
 import { useState, type CSSProperties, type FormEvent } from "react";
+import { submitAndroidBetaEmail } from "../app/h/supabase";
 
 type Props = {
   appStoreUrl: string;
   googlePlayUrl: string;
   betaEmail: string;
+  source?: string;
   rowStyle?: CSSProperties;
 };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const DEFAULT_SUBJECT = "DOODL Android beta access";
 
-const buildMailtoHref = (address: string, userEmail: string) => {
-  const bodyLines = ["Hi! Please add me to the DOODL Android beta."];
-  if (userEmail) {
-    bodyLines.push(`Google account email: ${userEmail}`);
-  }
-  const subject = encodeURIComponent(DEFAULT_SUBJECT);
-  const body = encodeURIComponent(bodyLines.join("\n"));
-  return `mailto:${address}?subject=${subject}&body=${body}`;
-};
-
-export default function StoreBadges({ appStoreUrl, googlePlayUrl, betaEmail, rowStyle }: Props) {
+export default function StoreBadges({ appStoreUrl, googlePlayUrl, betaEmail, source, rowStyle }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "error" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "error" | "sent">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showContactLink, setShowContactLink] = useState(false);
   const trimmedEmail = email.trim();
-  const canSubmit = trimmedEmail.length > 0;
+  const canSubmit = trimmedEmail.length > 0 && status !== "sending";
   const betaEmailAddress = betaEmail || "anthonyvvza@gmail.com";
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!EMAIL_PATTERN.test(trimmedEmail)) {
       setStatus("error");
+      setErrorMessage("Enter a valid Google account email.");
+      setShowContactLink(false);
       return;
     }
-    setEmail(trimmedEmail);
-    setStatus("sent");
-    window.location.href = buildMailtoHref(betaEmailAddress, trimmedEmail);
+    setStatus("sending");
+    setErrorMessage("");
+    setShowContactLink(false);
+    try {
+      await submitAndroidBetaEmail(trimmedEmail, source);
+      setEmail(trimmedEmail);
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+      setErrorMessage("Something went wrong.");
+      setShowContactLink(true);
+    }
   };
 
   return (
@@ -53,6 +57,8 @@ export default function StoreBadges({ appStoreUrl, googlePlayUrl, betaEmail, row
           onClick={() => {
             setIsOpen(true);
             setStatus("idle");
+            setErrorMessage("");
+            setShowContactLink(false);
           }}
         >
           <img src="/googleplay.svg" alt="Get it on Google Play" />
@@ -98,6 +104,12 @@ export default function StoreBadges({ appStoreUrl, googlePlayUrl, betaEmail, row
                   if (status !== "idle") {
                     setStatus("idle");
                   }
+                  if (errorMessage) {
+                    setErrorMessage("");
+                  }
+                  if (showContactLink) {
+                    setShowContactLink(false);
+                  }
                 }}
                 aria-describedby="android-beta-hint"
                 aria-invalid={status === "error"}
@@ -108,21 +120,30 @@ export default function StoreBadges({ appStoreUrl, googlePlayUrl, betaEmail, row
                 We only use this to add you to the Android beta.
               </p>
               {status === "error" ? (
-                <p className="betaStatus betaError">Enter a valid Google account email.</p>
+                <p className="betaStatus betaError">
+                  {errorMessage}
+                  {showContactLink ? (
+                    <>
+                      {" "}
+                      Contact{" "}
+                      <a className="betaLink" href={`mailto:${betaEmailAddress}`}>
+                        {betaEmailAddress}
+                      </a>
+                      .
+                    </>
+                  ) : null}
+                </p>
               ) : null}
               {status === "sent" ? (
-                <p className="betaStatus betaSuccess">
-                  Thanks! If your email app did not open, send your Google account email to{" "}
-                  <a className="betaLink" href={`mailto:${betaEmailAddress}`}>
-                    {betaEmailAddress}
-                  </a>
-                  .
-                </p>
+                <p className="betaStatus betaSuccess">Thanks! You are on the Android beta list.</p>
+              ) : null}
+              {status === "sending" ? (
+                <p className="betaStatus betaPending">Sending...</p>
               ) : null}
 
               <div className="betaActions">
                 <button className={`btn btnPrimary ${canSubmit ? "" : "btnDisabled"}`} type="submit" disabled={!canSubmit}>
-                  Request Android beta
+                  {status === "sending" ? "Sending..." : "Request Android beta"}
                 </button>
               </div>
 
