@@ -2,7 +2,9 @@ export default function Page() {
   const appStoreUrl =
     (process.env.NEXT_PUBLIC_APP_STORE_URL as string | undefined) ??
     "https://apps.apple.com/nl/app/doodle-with-friends-doodl/id6756630419";
-  const googlePlayUrl = (process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL as string | undefined) ?? "https://doodl-me.com/";
+  const googlePlayUrl =
+    (process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL as string | undefined) ??
+    "https://play.google.com/store/apps/details?id=com.anthonyverruijt.doodl";
 
   return (
     <main className="home">
