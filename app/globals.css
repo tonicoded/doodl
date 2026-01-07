@@ -186,6 +186,17 @@ a {
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.16));
 }
 
+.storeBadgeButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.storeBadgeButton:focus-visible {
+  outline: 2px solid rgba(13, 14, 18, 0.28);
+  outline-offset: 2px;
+}
+
 .btn {
   padding: 12px 16px;
   border-radius: 12px;
@@ -360,6 +371,65 @@ a {
   margin: 10px 0 0;
   color: rgba(13, 14, 18, 0.70);
   font-size: 13px;
+}
+
+.betaForm {
+  width: min(360px, 100%);
+  margin: 14px auto 0;
+  display: grid;
+  gap: 10px;
+  text-align: left;
+}
+
+.betaLabel {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(13, 14, 18, 0.62);
+}
+
+.betaInput {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(13, 14, 18, 0.14);
+  background: rgba(255, 255, 255, 0.86);
+  padding: 12px 14px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.betaInput:focus {
+  outline: 2px solid rgba(255, 252, 0, 0.45);
+  border-color: rgba(13, 14, 18, 0.24);
+}
+
+.betaHint {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(13, 14, 18, 0.64);
+}
+
+.betaStatus {
+  margin: 0;
+  font-size: 12px;
+}
+
+.betaError {
+  color: #b42318;
+}
+
+.betaSuccess {
+  color: rgba(13, 14, 18, 0.78);
+}
+
+.betaActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.betaLink {
+  text-decoration: underline;
 }
 
 .anonPalette {

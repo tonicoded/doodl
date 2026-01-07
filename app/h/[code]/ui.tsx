@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import StoreBadges from "../../../components/StoreBadges";
 
 type Props = {
   code: string;
@@ -15,6 +16,8 @@ export default function OpenInAppClient({ code }: Props) {
   const googlePlayUrl =
     (process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL as string | undefined) ??
     "https://play.google.com/store/apps/details?id=com.anthonyverruijt.doodl";
+  const betaEmail =
+    (process.env.NEXT_PUBLIC_ANDROID_BETA_EMAIL as string | undefined) ?? "anthonyvvza@gmail.com";
 
   useEffect(() => {
     if (didAttemptOpen) return;
@@ -83,14 +86,12 @@ export default function OpenInAppClient({ code }: Props) {
             <div className="dividerLine" />
           </div>
 
-          <div className="storeRow" aria-label="Download" style={{ marginTop: 16 }}>
-            <a className="storeBadge" href={appStoreUrl} target="_blank" rel="noreferrer">
-              <img src="/appstore.svg" alt="Download on the App Store" />
-            </a>
-            <a className="storeBadge" href={googlePlayUrl} target="_blank" rel="noreferrer">
-              <img src="/googleplay.svg" alt="Get it on Google Play" />
-            </a>
-          </div>
+          <StoreBadges
+            appStoreUrl={appStoreUrl}
+            googlePlayUrl={googlePlayUrl}
+            betaEmail={betaEmail}
+            rowStyle={{ marginTop: 16 }}
+          />
         </main>
       </div>
     </div>

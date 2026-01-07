@@ -1,3 +1,5 @@
+import StoreBadges from "../components/StoreBadges";
+
 export default function Page() {
   const appStoreUrl =
     (process.env.NEXT_PUBLIC_APP_STORE_URL as string | undefined) ??
@@ -5,6 +7,8 @@ export default function Page() {
   const googlePlayUrl =
     (process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL as string | undefined) ??
     "https://play.google.com/store/apps/details?id=com.anthonyverruijt.doodl";
+  const betaEmail =
+    (process.env.NEXT_PUBLIC_ANDROID_BETA_EMAIL as string | undefined) ?? "anthonyvvza@gmail.com";
 
   return (
     <main className="home">
@@ -18,14 +22,7 @@ export default function Page() {
         latest doodl.
       </p>
 
-      <div className="storeRow" aria-label="Download">
-        <a className="storeBadge" href={appStoreUrl} target="_blank" rel="noreferrer">
-          <img src="/appstore.svg" alt="Download on the App Store" />
-        </a>
-        <a className="storeBadge" href={googlePlayUrl} target="_blank" rel="noreferrer">
-          <img src="/googleplay.svg" alt="Get it on Google Play" />
-        </a>
-      </div>
+      <StoreBadges appStoreUrl={appStoreUrl} googlePlayUrl={googlePlayUrl} betaEmail={betaEmail} />
     </main>
   );
 }
