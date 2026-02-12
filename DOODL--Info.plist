@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.anthonyverruijt.doodl</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>doodl</string>
+			</array>
+		</dict>
+	</array>
+	<key>FreeDailyDoodleSendLimit</key>
+	<integer>10</integer>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-3940256099942544~1458002511</string>
+	<key>AdMobBannerUnitId</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AdMobTestDeviceIds</key>
+	<string></string>
+	<key>RevenueCatApiKey</key>
+	<string>appl_kRecojjTobZMdWhrXhFfiLgubCO</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>We use your device identifier to show relevant ads and to support the app.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+</dict>
+</plist>

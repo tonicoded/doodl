@@ -1,0 +1,17 @@
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+.packages
+.idea/
+.vscode/
+build/
+android/.gradle/
+android/local.properties
+android/key.properties
+**/*.jks
+**/*.keystore
+android/app/google-services.json
+
+# Local secrets
+lib/config.dart

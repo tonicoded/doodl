@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DOODL. Terms of Service</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.72);
+        --bg: #060714;
+        --border: rgba(255, 255, 255, 0.16);
+        --shadow: 0 48px 110px rgba(0, 0, 0, 0.58);
+        --bg-gradient: linear-gradient(180deg, #83b84b 0%, #a9b84d 36%, #49b99e 70%, #238fcf 100%);
+      }
+
+      body {
+        margin: 0;
+        height: 100%;
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(1100px 700px at 50% 110%, rgba(0, 0, 0, 0.28), transparent 55%),
+          radial-gradient(900px 520px at 50% -10%, rgba(255, 255, 255, 0.12), transparent 60%),
+          var(--bg-gradient);
+        overflow: hidden;
+      }
+
+      .stage {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: clamp(14px, 3vw, 28px);
+      }
+
+      .frame {
+        position: relative;
+        aspect-ratio: 9 / 16;
+        height: min(94vh, calc(92vw * 16 / 9));
+        width: min(92vw, calc(94vh * 9 / 16));
+        border-radius: 26px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 32px 88px rgba(0, 0, 0, 0.45);
+        background: transparent;
+      }
+
+      .frame::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: transparent;
+      }
+
+      .frameInner {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .frameScroll {
+        flex: 1;
+        overflow: auto;
+        padding: 18px 16px;
+      }
+
+      .frameScroll::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        justify-content: center;
+        width: 100%;
+        margin-top: 4px;
+      }
+
+      .brand img {
+        width: 84px;
+        height: auto;
+        border-radius: 0;
+        box-shadow: none;
+        mix-blend-mode: screen;
+      }
+
+      .sheet {
+        margin: 14px auto 0;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(0, 0, 0, 0.14);
+        backdrop-filter: blur(10px);
+        padding: 18px;
+        max-width: 520px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 20px;
+        letter-spacing: -0.02em;
+      }
+      .meta {
+        margin: 8px 0 0;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 13px;
+      }
+      h2 {
+        margin: 16px 0 8px;
+        font-size: 14px;
+        letter-spacing: -0.01em;
+      }
+      p {
+        margin: 0 0 10px;
+      }
+      ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+      li {
+        margin: 6px 0;
+      }
+      a {
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .footerBar {
+        padding: 12px 16px 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        background: linear-gradient(180deg, rgba(6, 7, 20, 0.18), rgba(6, 7, 20, 0.52));
+        text-align: center;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 12px;
+      }
+
+      .footerLinks {
+        display: inline-flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .footerLinks a {
+        border-bottom: 1px solid transparent;
+        padding-bottom: 2px;
+      }
+
+      .footerLinks a:hover {
+        color: rgba(255, 255, 255, 0.92);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      @media (max-width: 540px) {
+        .stage {
+          padding: 0;
+        }
+
+        .frame {
+          width: 100%;
+          height: 100vh;
+          border-radius: 0;
+          border: none;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <div class="frame">
+        <div class="frameInner">
+          <div class="frameScroll">
+            <div class="brand">
+              <img src="/logo.png" alt="DOODL." width="84" height="84" />
+            </div>
+
+            <article class="sheet">
+              <h1>Terms of Service</h1>
+              <p class="meta">Last updated: December 18, 2025</p>
+              <p class="meta">
+                Welcome to DOODL. By using the app, you agree to these Terms. If you do not agree, please do not use DOODL.
+              </p>
+
+              <h2>1. Using DOODL.</h2>
+              <p>
+                You must be old enough to use your device’s app store and legally able to enter into these Terms. You agree to use
+                DOODL. respectfully and comply with applicable laws.
+              </p>
+
+              <h2>2. Accounts &amp; groups</h2>
+              <ul>
+                <li>You are responsible for keeping access to your device and account information secure.</li>
+                <li>You may create or join groups to share doodles with friends and family.</li>
+                <li>We may limit group size or other features to protect reliability and prevent abuse.</li>
+              </ul>
+
+              <h2>3. Your content</h2>
+              <p>
+                You own the content you create (such as doodles and your profile details). By using DOODL., you grant us a limited
+                license to host, store, process, and deliver your content solely to operate the app (for example, syncing to your
+                group and delivering notifications).
+              </p>
+              <p>You represent that you have the rights needed to share the content you upload or send.</p>
+
+              <h2>4. Acceptable use</h2>
+              <p>You agree not to:</p>
+              <ul>
+                <li>Harass, threaten, or harm others.</li>
+                <li>Share illegal content or violate someone else’s privacy or rights.</li>
+                <li>Attempt to disrupt, reverse engineer, or misuse the app, backend, or notifications.</li>
+                <li>Use DOODL. for spam or abusive behavior.</li>
+              </ul>
+
+              <h2>5. User-generated content &amp; moderation</h2>
+              <p>
+                DOODL. includes user-generated content (like doodles and profile information). We want DOODL. to be safe and fun, so
+                we provide tools and enforce rules to reduce abuse.
+              </p>
+              <ul>
+                <li>
+                  <strong>Report:</strong> you can report objectionable content inside the app. We review reports and aim to take action
+                  within <strong>24 hours</strong>, which may include removing content and restricting or ejecting abusive users.
+                </li>
+                <li>
+                  <strong>Block:</strong> you can block abusive users/senders. Blocking removes their content from your feed immediately
+                  and stops future content from reaching you where technically possible.
+                </li>
+                <li>
+                  <strong>Enforcement:</strong> we may remove content, suspend features, or terminate accounts for violations of these
+                  Terms or for safety/security reasons.
+                </li>
+              </ul>
+
+              <h2>6. Privacy</h2>
+              <p>
+                Our Privacy Policy explains what we collect and how we protect it. By using DOODL., you also agree to the Privacy
+                Policy.
+              </p>
+
+              <h2>7. Subscriptions &amp; purchases</h2>
+              <p>
+                DOODL. may offer optional in-app purchases, including auto-renewing subscriptions and a one-time “lifetime” purchase.
+                Purchases are processed by Apple through the App Store.
+              </p>
+              <ul>
+                <li>
+                  <strong>Free trials (if offered):</strong> if you start a trial, you will be charged at the end of the trial period
+                  unless you cancel before it ends.
+                </li>
+                <li>
+                  <strong>Auto-renew subscriptions:</strong> subscriptions renew automatically unless cancelled at least 24 hours before
+                  the end of the current period (timing and rules are controlled by Apple).
+                </li>
+                <li><strong>Manage/cancel:</strong> you can manage or cancel in Apple ID settings on your device.</li>
+                <li><strong>Restore:</strong> use “Restore Purchases” in the app to restore eligible purchases.</li>
+                <li><strong>Refunds:</strong> refunds are handled by Apple under their policies.</li>
+              </ul>
+
+              <h2>8. Service changes &amp; availability</h2>
+              <p>
+                We may update features, fix bugs, limit access, or stop offering DOODL. at any time. We’ll try to provide notice
+                when changes are significant.
+              </p>
+
+              <h2>9. Disclaimers</h2>
+              <p>DOODL. is provided “as is” without warranties. We do not promise uninterrupted or error-free service.</p>
+
+              <h2>10. Limitation of liability</h2>
+              <p>
+                To the fullest extent permitted by law, DOODL. and its team are not liable for indirect, incidental, special,
+                consequential, or punitive damages, or any loss of data, revenue, profits, or goodwill arising from your use of
+                DOODL.
+              </p>
+
+              <h2>11. Termination</h2>
+              <p>
+                You may stop using DOODL. at any time. We may suspend or end access if you violate these Terms, misuse the
+                service, or for security reasons.
+              </p>
+
+              <h2>12. Changes to these Terms</h2>
+              <p>We may update these Terms occasionally. Continued use after changes means you accept the updated Terms.</p>
+
+              <h2>13. Contact</h2>
+              <p>Questions or concerns? Email <a href="mailto:anthonyvvza@gmail.com">anthonyvvza@gmail.com</a>.</p>
+            </article>
+          </div>
+
+          <footer class="footerBar">
+            <div class="footerLinks">
+              <a href="/privacy/">privacy</a>
+              <a href="/terms/">terms</a>
+              <a href="/support/">support</a>
+              <span>© DOODL. 2025</span>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

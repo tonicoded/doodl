@@ -1,0 +1,34 @@
+.DS_Store
+DerivedData/
+DerivedDataBuild/
+DerivedDataDevice/
+.modulecache/
+.spm/
+.tmp/
+.sandbox_home/
+.home/
+
+# Xcode
+*.xcuserstate
+**/xcuserdata/
+
+# Node / Next.js
+node_modules/
+.next/
+
+# Python
+__pycache__/
+*.pyc
+
+# Supabase CLI temp
+supabase/.temp/
+
+# Flutter
+android_flutter/**/build/
+android_flutter/.dart_tool/
+android_flutter/.flutter-plugins
+android_flutter/.flutter-plugins-dependencies
+
+# secrets
+*.p8
+AuthKey_*.p8

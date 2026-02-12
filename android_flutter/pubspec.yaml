@@ -1,0 +1,50 @@
+name: doodl
+description: DOODL. Android app (Flutter)
+publish_to: "none"
+version: 1.2.1+6
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+  # Networking / storage
+  http: ^1.2.2
+  shared_preferences: ^2.3.2
+
+  # Supabase
+  supabase_flutter: ^2.6.0
+
+  # Navigation + state
+  go_router: ^14.2.7
+  flutter_riverpod: ^2.5.1
+
+  # UI polish
+  cached_network_image: ^3.4.1
+
+  # Media
+  image_picker: ^1.1.2
+
+  # Drawing (PencilKit-like)
+  scribble: ^0.10.0
+
+  # Push notifications (Android)
+  firebase_core: ^3.6.0
+  firebase_messaging: ^15.1.0
+
+  # Home screen widget (Android)
+  path_provider: ^2.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/
